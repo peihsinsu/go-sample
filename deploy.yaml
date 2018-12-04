@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1 
+kind: Deployment
+metadata:
+  name: go-sample 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: go-sample 
+    spec:
+      containers:
+      - name: go-sample
+        image: gcr.io/waldo-gcp/go-sample:v20181204-001
+        env:
+        - name: ENV 
+          value: "production"
+        ports:
+        - containerPort: 80
